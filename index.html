@@ -10,34 +10,42 @@
 
       //Makes computer play rock, paper or scissors randomly
     function computerPlay() {
-        let possibleOutcomes =  ["Rock", "Paper", "Scissors"];
+        let possibleOutcomes =  ["rock", "paper", "scissors"];
         let randomAnswer = Math.floor(Math.random() * possibleOutcomes.length)
         return possibleOutcomes[randomAnswer];
     }
 
+    //plays one round of the game
     function singleRound(computerSelection, playerSelection) {
         if (computerSelection === playerSelection) {
             return "It's a draw"
-        } else if (computerSelection == "Rock" && playerSelection == "Scissors") {
-            return "You lose, Rock beats Scissors"
-        } else if (computerSelection == "Paper" && playerSelection == "Rock") {
-            return "You lose, Paper beats Rock"
-        } else if (computerSelection == "Scissors" && playerSelection == "Paper") {
-            return "You lose, Scissors beats Paper"
-        } else if (computerSelection == "Rock" && playerSelection == "Paper") {
-            return "You win, Paper beats Rock"
-        } else if (computerSelection == "Paper" && playerSelection == "Scissors") {
-            return "You win, Scissors beat Paper"
-        } else if (computerSelection == "Scissors" && playerSelection == "Rock") {
-            return "You win, Rock beats Scissors"
+        } else if (computerSelection === "rock" && playerSelection === "scissors") {
+            return "You lose, computer played Rock and Rock beats Scissors"
+        } else if (computerSelection === "paper" && playerSelection === "rock") {
+            return "You lose, computer played Paper and Paper beats Rock"
+        } else if (computerSelection === "scissors" && playerSelection === "paper") {
+            return "You lose, computer played Scissors and Scissors beats Paper"
+        } else if (computerSelection === "rock" && playerSelection === "paper") {
+            return "You win, computer played Rock and Paper beats Rock"
+        } else if (computerSelection === "paper" && playerSelection === "scissors") {
+            return "You win, computer played Paper and Scissors beat Paper"
+        } else if (computerSelection === "scissors" && playerSelection === "rock") {
+            return "You win, computer played Scissors and Rock beats Scissors"
         } else {
             return "Something went wrong, try again"
         }
     }
 
-    const playerSelection = 'Rock'
-    const computerSelection = computerPlay()
-    console.log(singleRound(playerSelection, computerSelection))
+    //picks player's and computer's choices
+    function game(){
+        let playerSelection = prompt("Type rock, paper or scissors").toLowerCase();
+        let computerSelection = computerPlay();
+        console.log(singleRound(computerSelection, playerSelection));
+    }
+
+    //runs the code
+    game();
+
 /*
     function game() {
         for (var i = 0; i < 5; i++) {
@@ -54,12 +62,3 @@
 </body>
 </html>
 
-<!--
-
-if (getRandomNumber === 1) {
-    return "Rock" 
-} else if (getRandomNumber === 2) {
-    return "Paper"
-} else {
-    return "Scissors"
-}-->
