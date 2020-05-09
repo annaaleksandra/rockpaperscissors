@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Rock Paper Scissors</title>
+</head>
+<body>
+
+  <script>
+
+      //Makes computer play rock, paper or scissors randomly
+    function computerPlay() {
+        let possibleOutcomes =  ["Rock", "Paper", "Scissors"];
+        let randomAnswer = Math.floor(Math.random() * possibleOutcomes.length)
+        return possibleOutcomes[randomAnswer];
+    }
+
+    function singleRound(computerSelection, playerSelection) {
+        if (computerSelection === playerSelection) {
+            return "It's a draw"
+        } else if (computerSelection == "Rock" && playerSelection == "Scissors") {
+            return "You lose, Rock beats Scissors"
+        } else if (computerSelection == "Paper" && playerSelection == "Rock") {
+            return "You lose, Paper beats Rock"
+        } else if (computerSelection == "Scissors" && playerSelection == "Paper") {
+            return "You lose, Scissors beats Paper"
+        } else if (computerSelection == "Rock" && playerSelection == "Paper") {
+            return "You win, Paper beats Rock"
+        } else if (computerSelection == "Paper" && playerSelection == "Scissors") {
+            return "You win, Scissors beat Paper"
+        } else if (computerSelection == "Scissors" && playerSelection == "Rock") {
+            return "You win, Rock beats Scissors"
+        } else {
+            return "Something went wrong, try again"
+        }
+    }
+
+    const playerSelection = 'Rock'
+    const computerSelection = computerPlay()
+    console.log(singleRound(playerSelection, computerSelection))
+/*
+    function game() {
+        for (var i = 0; i < 5; i++) {
+            let playerSelection = prompt("Rock, paper, scissors?")
+            let computerSelection = computerPlay();
+            console.log(singleRound(playerSelection, computerSelection));
+        }
+    }*/
+      
+
+     
+      
+  </script>
+</body>
+</html>
+
+<!--
+
+if (getRandomNumber === 1) {
+    return "Rock" 
+} else if (getRandomNumber === 2) {
+    return "Paper"
+} else {
+    return "Scissors"
+}-->
